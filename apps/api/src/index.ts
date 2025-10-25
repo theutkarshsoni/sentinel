@@ -3,7 +3,8 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import { Queue } from 'bullmq';
-import { Redis } from "ioredis"
+import { Redis } from 'ioredis';
+import { router } from './routes';
 
 const app = express();
 app.use(express.json());
@@ -22,6 +23,8 @@ app.get('/health', async (_req, res) => {
     res.status(500).json({ ok: false, error: String(e) });
   }
 });
+
+app.use('/api', router);
 
 const port = Number(process.env.PORT || 3000);
 app.listen(port, () => console.log(`API on http://localhost:${port}`));

@@ -8,6 +8,7 @@
     "worker": "ts-node-dev --respawn src/worker.ts",
     "prisma:generate": "prisma generate",
     "migrate": "prisma migrate dev",
+    "seed": "ts-node-dev src/seed.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,6 +16,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.17.1",
   "dependencies": {
+    "@faker-js/faker": "^10.1.0",
     "@prisma/client": "^6.18.0",
     "bullmq": "^5.61.2",
     "cors": "^2.8.5",
